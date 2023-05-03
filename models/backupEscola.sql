@@ -23,19 +23,20 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   `nome` varchar(250) DEFAULT NULL,
   `cidade` varchar(250) DEFAULT NULL,
   `sexo` varchar(1) DEFAULT NULL,
+	`imagem` text DEFAULT NULL,
   PRIMARY KEY (`codigo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela escola.aluno: ~5 rows (aproximadamente)
 DELETE FROM `aluno`;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` (`codigo`, `nome`, `cidade`, `sexo`) VALUES
-	(6, 'Paula', 'Registro', 'f'),
-	(9, 'Fernando', 'Registro', 'm'),
-	(10, 'Fabiano', 'Registro', 'm'),
-	(11, 'Fabio', 'Florianópolis', 'm'),
-	(13, 'Fernando', 'Registro', NULL),
-	(15, 'Fred', 'Registro', 'm');
+INSERT INTO `aluno` (`codigo`, `nome`, `cidade`, `sexo`, `imagem`) VALUES
+	(6, 'Paula', 'Registro', 'f', NULL),
+	(9, 'Fernando', 'Registro', 'm', NULL),
+	(10, 'Fabiano', 'Registro', 'm', NULL),
+	(11, 'Fabio', 'Florianópolis', 'm', NULL),
+	(13, 'Fernando', 'Registro', NULL, NULL),
+	(15, 'Fred', 'Registro', 'm', NULL);
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
