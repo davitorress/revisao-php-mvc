@@ -1,6 +1,6 @@
 <?php require_once("./blades/header.php") ?>
 <main class="container bg-white mt-5 shadow-lg p-3 rounded-2">
-    <form action="../controllers/cadastrarAluno.php" method="post">
+    <form action="../controllers/cadastrarAluno.php" method="post" enctype="multipart/form-data">
         <label class="form-label">Nome</label>
         <input class="form-control" type="text" name="alunoNome" /><br>
 
@@ -9,6 +9,9 @@
 
         M<input class="ms-2" type="radio" value="m" name="alunoSexo" /><br>
         F<input class="ms-2" type="radio" value="f" name="alunoSexo" /><br>
+
+        <br><label class="form-label">Imagem</label>
+        <input class="form-control" type="file" name="alunoImagem" /><br>
 
         <button type="submit" class="btn btn-success mt-3">
             <span class="material-symbols-outlined d-flex">save</span>

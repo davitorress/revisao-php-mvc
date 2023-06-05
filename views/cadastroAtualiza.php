@@ -13,7 +13,7 @@ require_once("./blades/header.php");
     $query = mysqli_query($conexao, "SELECT * FROM aluno WHERE codigo = " . $_GET["ida"]);
     while ($exibe = mysqli_fetch_array($query)) {
     ?>
-        <form action="../controllers/atualizarAluno.php" method="post">
+        <form action="../controllers/atualizarAluno.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="alunoCodigo" value="<?php echo $exibe[0] ?>" />
 
             <label class="form-label">Nome</label>
@@ -24,6 +24,15 @@ require_once("./blades/header.php");
 
             M<input class="ms-2" type="radio" value="m" name="alunoSexo" <?php echo ($exibe[3] == "m") ? "checked" : "" ?> /><br>
             F<input class="ms-2" type="radio" value="f" name="alunoSexo" <?php echo ($exibe[3] == "f") ? "checked" : "" ?> /><br>
+
+            <br><label class="form-label">Imagem</label>
+            <input class="form-control" type="file" name="alunoImagem" /><br>
+
+            <?php if ($exibe[4] != null) { ?>
+                <label class='form-label'>Imagem cadastrada</label><br>
+                <img src="./img/<?php echo $exibe[4] ?>" alt="<?php echo $exibe[1] ?>" width="150px" /><br>
+                <input type="hidden" name="imgAntiga" value="<?php echo $exibe[4] ?>" />
+            <?php } ?>
 
             <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#modalPopup">
                 <span class="material-symbols-outlined d-flex">save_as</span>

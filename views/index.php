@@ -23,6 +23,7 @@ require_once("./blades/header.php");
             <thead>
                 <tr>
                     <th>Frase</th>
+                    <th>Imagem</th>
                     <th>Editar</th>
                     <th>Excluir</th>
                 </tr>
@@ -36,6 +37,7 @@ require_once("./blades/header.php");
                     $varSexo = ($exibe[3] == "m") ? "o" : "a";
                     echo "<tr>" .
                         "<td>" . strtoupper($varSexo) . " alun$varSexo <b>" . $exibe[1] . "</b> mora na cidade de " . $exibe[2] . ".</td>" .
+                        "<td><img src='./img/" . $exibe[4] . "' alt='" . $exibe[1] . "' width='50px' /></td>" .
                         "<td><a class='btn btn-primary' href='./cadastroAtualiza.php?ida=" . $exibe[0] . "'><span class='material-symbols-outlined d-flex'>save_as</span></a></td>" .
                         "<td><button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#modalPopup" . $exibe[0] . "'><span class='material-symbols-outlined d-flex'>delete</span></button></td>" .
                         "</tr>";
@@ -51,7 +53,7 @@ require_once("./blades/header.php");
                                 </div>
                                 <div class="modal-body">Tem certeza que deseja excluir o registro?</div>
                                 <div class="modal-footer">
-                                    <a href="../controllers/deletarAluno.php?ida=<?php echo $exibe[0] ?>" class="btn btn-danger">Confirmar</a>
+                                    <a href="../controllers/deletarAluno.php?ida=<?php echo $exibe[0] ?>&imagem=<?php echo $exibe[4] ?>" class="btn btn-danger">Confirmar</a>
                                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
                                 </div>
                             </div>
